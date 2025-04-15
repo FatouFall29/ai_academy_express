@@ -4,6 +4,19 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 
+
+
+// Ajoutez les contrôleurs
+const usersController = require("./controllers/usersController");
+const coursesController = require("./controllers/coursesController");
+
+
+
+
+
+
+
+
 const subscribersController = require("./controllers/subscribersController");
 const homeController = require("./controllers/homeController");
 const errorController = require("./controllers/errorController");
@@ -48,6 +61,19 @@ app.post("/contact", homeController.processContact);
 
 
 
+
+
+// Ajouter le middleware method-override
+const methodOverride = require("method-override");
+app.use(methodOverride("_method", {
+methods: ["POST", "GET"]
+}));
+
+
+
+
+
+
 // Formulaire d’abonnement
 app.get("/subscribe", subscribersController.new);
 app.post("/subscribers", subscribersController.create);
@@ -68,6 +94,33 @@ app.post("/subscribers/:id/edit", subscribersController.update);
 // app.post("/subscribers/:id/update", subscribersController.update);
 app.get("/subscribers/:id", subscribersController.show); // DOIT ÊTRE EN DERNIER !
 
+
+
+
+
+
+
+
+
+
+
+
+// Routes pour les utilisateurs
+app.get("/users", usersController.index, usersController.indexView);
+app.get("/users/new", usersController.new);
+app.post("/users/create", usersController.create, usersController.redirectView);
+app.get("/users/:id", usersController.show, usersController.showView);
+app.get("/users/:id/edit", usersController.edit);
+app.put("/users/:id/update", usersController.update, usersController.redirectView);
+app.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
+// Routes pour les cours
+app.get("/courses", coursesController.index, coursesController.indexView);
+app.get("/courses/new", coursesController.new);
+app.post("/courses/create", coursesController.create, coursesController.redirectView);
+app.get("/courses/:id", coursesController.show, coursesController.showView);
+app.get("/courses/:id/edit", coursesController.edit);
+app.put("/courses/:id/update", coursesController.update, coursesController.redirectView);
+app.delete("/courses/:id/delete", coursesController.delete, coursesController.redirectView);
 app.use(errorController.error404);
 
 const PORT = process.env.PORT || 3000;
