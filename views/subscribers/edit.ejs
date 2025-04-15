@@ -1,0 +1,24 @@
+<h2><%= pageTitle %></h2>
+
+<form action="/subscribers/<%= subscriber._id %>/edit" method="POST">
+  <label for="name">Nom complet:</label>
+  <input type="text" name="name" id="name" value="<%= subscriber.name %>" required>
+  <% if (errors && errors.name) { %>
+    <span style="color: red;"><%= errors.name %></span><br>
+  <% } %>
+
+  <label for="email">Email :</label>
+  <input type="email" name="email" id="email" value="<%= subscriber.email %>" required>
+  <% if (errors && errors.email) { %>
+    <span style="color: red;"><%= errors.email %></span><br>
+  <% } %>
+
+  <label for="zipCode">Code postal :</label>
+  <input type="text" name="zipCode" id="zipCode" value="<%= subscriber.zipCode %>" required>
+  <% if (errors && errors.zipCode) { %>
+    <span style="color: red;"><%= errors.zipCode %></span><br>
+  <% } %>
+
+  <button type="submit" class="btn-edit">
+    <i class="fas fa-save"></i> Enregistrer</button>
+</form>
