@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title><%= pageTitle %></title>
+</head>
+<body>
+  <h1>Inscription à notre newsletter</h1>
+  <form action="/subscribers" method="POST">
+    <label>Nom complet :</label><br>
+    <input type="text" name="name" value="<%= subscriber.name || '' %>"><br>
+    <% if (errors && errors.name) { %>
+      <span style="color: red;"><%= errors.name %></span><br>
+    <% } %>
+  
+    <label>Email :</label><br>
+    <input type="text" name="email" value="<%= subscriber.email || '' %>"><br>
+    <% if (errors && errors.email) { %>
+      <span style="color: red;"><%= errors.email %></span><br>
+    <% } %>
+  
+    <label>Code Postal :</label><br>
+    <input type="text" name="zipCode" value="<%= subscriber.zipCode || '' %>"><br>
+    <% if (errors && errors.zipCode) { %>
+      <span style="color: red;"><%= errors.zipCode %></span><br>
+    <% } %>
+  
+  <button type="submit" class="btn btn-primary">S'abonner</button>
+
+  </form>
+  
+</body>
+</html>

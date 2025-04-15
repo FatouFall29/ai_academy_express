@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Academy - <%= pageTitle || "Application" %></title>
+<!-- <title>AI Academy - <%= pageTitle %></title> -->
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  integrity="sha512-b6UdY1ZVwJpyxnFfU9Rw9oBHZ3EznUc9I9JhXq1VqFNdBFPGhTMyk8WrFVoxb4Bk3y9qf9JINM0ryhT9gfk5jA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
+<div class="logo">
+<img src="/images/logo.jpg" alt="AI Academy Logo" width="100">
+<h1>AI Academy</h1>
+</div>
+<nav>
+<ul>
+<li><a href="/">Accueil</a></li>
+<li><a href="/about">À propos</a></li>
+<li><a href="/courses">Cours</a></li>
+<li><a href="/contact">Contact</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/subscribers">Abonnés</a></li>
+<li><a href="/subscribers/new">S'abonner</a></li>
+
+</ul>
+
+</nav>
+</header>
+<main>
+<%- body %>
+</main>
+<footer>
+<p>&copy; <%= new Date().getFullYear() %> AI Academy. Tous droits réservés.</p>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
