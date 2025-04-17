@@ -106,16 +106,17 @@ module.exports = {
       });
   },
 
-  delete: (req, res, next) => {
-    let userId = req.params.id;
-    User.findByIdAndRemove(userId)
-      .then(() => {
-        res.locals.redirect = "/users";
-        next();
-      })
-      .catch(error => {
-        console.log(`Erreur lors de la suppression de l'utilisateur par ID: ${error.message}`);
-        next();
-      });
-  }
-};
+delete: (req, res, next) => {
+  let userId = req.params.id;
+  User.findByIdAndDelete(userId)  // ou .findByIdAndRemove
+    .then(() => {
+      console.log(`Utilisateur supprimé avec succès`);
+      res.redirect("/users");  // Redirection après suppression
+    })
+    .catch(error => {
+      console.log(`Erreur lors de la suppression de l'utilisateur : ${error.message}`);
+      next(error);  // Propager l'erreur à Express pour la gestion globale
+    });
+}
+
+}
