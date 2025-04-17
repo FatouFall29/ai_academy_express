@@ -105,18 +105,15 @@ module.exports = {
         next(error);
       });
   },
-
 delete: (req, res, next) => {
   let userId = req.params.id;
-  User.findByIdAndDelete(userId)  // ou .findByIdAndRemove
+  User.findByIdAndDelete(userId)
     .then(() => {
-      console.log(`Utilisateur supprimé avec succès`);
-      res.redirect("/users");  // Redirection après suppression
+      res.redirect("/users");
     })
     .catch(error => {
-      console.log(`Erreur lors de la suppression de l'utilisateur : ${error.message}`);
-      next(error);  // Propager l'erreur à Express pour la gestion globale
+      console.log(`Erreur lors de la suppression : ${error.message}`);
+      next(error);
     });
 }
-
 }
