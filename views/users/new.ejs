@@ -1,34 +1,34 @@
-    <form action="/users/create" method="POST">
+      <form action="/users/create" method="POST" autocomplete="off">
         <h2>Créer un nouvel utilisateur:</h2>
       
         <div class="form-group">
           <label for="inputFirstName">Prénom</label>
           <input type="text" name="first" id="inputFirstName" class="form-control"
-                 placeholder="Prénom" value="<%= user?.name?.first || '' %>" autofocus>
+                 placeholder="Prénom" autocomplete="off">
         </div>
       
         <div class="form-group">
           <label for="inputLastName">Nom</label>
           <input type="text" name="last" id="inputLastName" class="form-control"
-                 placeholder="Nom" value="<%= user?.name?.last || '' %>">
+                 placeholder="Nom" autocomplete="off">
         </div>
       
         <div class="form-group">
           <label for="inputPassword">Mot de passe</label>
           <input type="password" name="password" id="inputPassword" class="form-control"
-                 placeholder="Mot de passe" value="">
+                 placeholder="Mot de passe" autocomplete="new-password">
         </div>
       
         <div class="form-group">
           <label for="inputEmail">Adresse email</label>
           <input type="email" name="email" id="inputEmail" class="form-control"
-                 placeholder="Adresse email" value="<%= user?.email || '' %>">
+                 placeholder="Adresse email" autocomplete="off">
         </div>
       
         <div class="form-group">
           <label for="inputZipCode">Code Postal</label>
           <input type="text" name="zipCode" id="inputZipCode" pattern="\d{5}" class="form-control"
-                 placeholder="Code Postal" value="<%= user?.zipCode || '' %>">
+                 placeholder="Code Postal" autocomplete="off">
         </div>
       
         <button type="submit" class="btn btn-primary">Créer</button>
