@@ -1,45 +1,6 @@
-// const mongoose = require("mongoose");
-
-// const subscriberSchema = new mongoose.Schema({
-//   name: {
-//     type: String,
-//     required: [true, "Le nom est requis."]
-//   },
-//   email: {
-//     type: String,
-//     required: [true, "L’email est requis."],
-//     match: [/.+@.+\..+/, "L’email doit être valide."]
-//   },
-//   zipCode: {
-//     type: Number,
-//     required: [true, "Le code postal est requis."],
-//     min: [1000, "Le code postal doit être au moins 1000."],
-//     max: [99999, "Le code postal doit être au plus 99999."]
-//   }
-// });
-
-// module.exports = mongoose.model("Subscriber", subscriberSchema);
-
-
-
-
-
-
-
-
-
-
-
-
 const mongoose = require("mongoose");
 
 const subscriberSchema = new mongoose.Schema({
-  // name: {
-  //   type: String,
-  //   required: [true, "Le nom est requis."]
-  // },
-
-
 
   name: {
     type: String,
@@ -51,18 +12,12 @@ const subscriberSchema = new mongoose.Schema({
       message: "Veuillez entrer le prénom et le nom."
     }
   },
-  
-  // email: {
-  //   type: String,
-  //   required: [true, "L’email est requis."],
-  //   match: [/.+@.+\..+/, "L’email doit être valide."]
-  // },
 
   email: {
     type: String,
     required: [true, "L’email est requis."],
     match: [
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Expression régulière plus stricte
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/, 
       "L’email doit être valide."
     ]
   },
