@@ -30,8 +30,12 @@ module.exports = {
   },
 
   new: (req, res) => {
-    res.render("users/new", { pageTitle: "Créer un utilisateur" });
+    res.render("users/new", {
+      pageTitle: "Créer un utilisateur",
+      user: {} // 👈 user vide pour forcer des champs vides dans le formulaire
+    });
   },
+  
 
   create: (req, res, next) => {
     let userParams = getUserParams(req.body);
